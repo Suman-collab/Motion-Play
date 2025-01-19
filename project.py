@@ -1,4 +1,4 @@
-import cv2 
+import cv2
 import mediapipe as mp
 import pyautogui
 import time
@@ -24,7 +24,7 @@ def count_fingers(lst):
         cnt += 1
 
 
-    return cnt 
+    return cnt
 
 cap = cv2.VideoCapture(0)
 
@@ -58,7 +58,7 @@ while True:
             elif (end_time-start_time) > 0.2:
                 if (cnt == 1):
                     pyautogui.press("right")
-                
+
                 elif (cnt == 2):
                     pyautogui.press("left")
 
@@ -73,10 +73,6 @@ while True:
 
                 prev = cnt
                 start_init = False
-
-
-        
-
 
         drawing.draw_landmarks(frm, hand_keyPoints, hands.HAND_CONNECTIONS)
 
