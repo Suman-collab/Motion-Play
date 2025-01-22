@@ -7,7 +7,7 @@ def count_fingers(lst):
     cnt = 0
 
     thresh = (lst.landmark[0].y*100 - lst.landmark[9].y*100)/2
-  
+
     if (lst.landmark[5].y*100 - lst.landmark[8].y*100) > thresh:
         cnt += 1
 
@@ -55,21 +55,14 @@ while True:
                 start_time = time.time()
                 start_init = True
 
-            elif (end_time-start_time) > 0.2:
-                if (cnt == 1):
-                    pyautogui.press("right")
-
-                elif (cnt == 2):
-                    pyautogui.press("left")
-
-                elif (cnt == 3):
-                    pyautogui.press("up")
-
-                elif (cnt == 4):
-                    pyautogui.press("down")
-
-                elif (cnt == 5):
-                    pyautogui.press("space")
+            elif (end_time-start_time) > 0.000000001:
+                while(True):
+                    if(cnt == 1):
+                        pyautogui.press('right')
+                    if(cnt==2):
+                        pyautogui.press('left')
+                    else:
+                        break
 
                 prev = cnt
                 start_init = False
